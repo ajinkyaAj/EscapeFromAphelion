@@ -74,6 +74,7 @@
      <Compile Include="Assets\ColliderTest.cs" />
      <Compile Include="Assets\ColumnController.cs" />
      <Compile Include="Assets\Explosion.cs" />
+     <Compile Include="Assets\GlowScript.cs" />
      <Compile Include="Assets\HighScoreTable.cs" />
      <Compile Include="Assets\NewGame.cs" />
      <Compile Include="Assets\QuitGame.cs" />

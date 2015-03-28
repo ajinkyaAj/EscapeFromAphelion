@@ -63,10 +63,10 @@
      <None Include="Assets\Materials\Glow.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>D:/AdvanceMobile/Escape From Aphelion v2.8/Escape From Aphelion v2.7/Escape From Aphelion/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/AdvanceMobile/Git/Escape From Aphelion v2.8/Escape From Aphelion v2.8/Escape From Aphelion/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript">
- <HintPath>D:/AdvanceMobile/Escape From Aphelion v2.8/Escape From Aphelion v2.7/Escape From Aphelion/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>D:/AdvanceMobile/Git/Escape From Aphelion v2.8/Escape From Aphelion v2.8/Escape From Aphelion/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
