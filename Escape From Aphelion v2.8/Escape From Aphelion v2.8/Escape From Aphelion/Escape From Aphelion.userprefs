@@ -1,18 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AphelionScripts\destroyObjScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AphelionScripts\powerUpScript.cs">
     <Files>
-      <File FileName="Assets\GlowScript.cs" Line="17" Column="2" />
-      <File FileName="Assets\AphelionScripts\destroyObjScript.cs" Line="223" Column="13" />
-      <File FileName="Assets\AphelionScripts\moveBoxScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\AphelionScripts\Randomize.cs" Line="36" Column="4" />
-      <File FileName="Assets\BombController.cs" Line="26" Column="40" />
-      <File FileName="Assets\AphelionScripts\powerUpScript.cs" Line="25" Column="27" />
-      <File FileName="Assets\AphelionScripts\mainMenu.cs" Line="14" Column="40" />
+      <File FileName="Assets\Explosion.cs" Line="11" Column="2" />
+      <File FileName="Assets\AphelionScripts\destroyObjScript.cs" Line="225" Column="37" />
+      <File FileName="Assets\AphelionScripts\Randomize.cs" Line="624" Column="10" />
+      <File FileName="Assets\BombController.cs" Line="1" Column="1" />
+      <File FileName="Assets\AphelionScripts\powerUpScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\AphelionScripts\mainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\AphelionScripts\FallingBox.cs" Line="8" Column="22" />
+      <File FileName="Assets\ColliderTest.cs" Line="6" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\AdvanceMobile\Git\Escape From Aphelion v2.8\Escape From Aphelion v2.8\Escape From Aphelion\Assets\ColliderTest.cs" line="9" />
+      <Breakpoint file="D:\AdvanceMobile\Git\Escape From Aphelion v2.8\Escape From Aphelion v2.8\Escape From Aphelion\Assets\AphelionScripts\destroyObjScript.cs" line="45" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

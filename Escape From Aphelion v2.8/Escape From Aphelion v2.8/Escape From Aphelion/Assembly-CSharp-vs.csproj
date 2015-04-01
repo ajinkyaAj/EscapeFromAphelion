@@ -83,6 +83,7 @@
      <Compile Include="Assets\TouchButtonLogic.cs" />
      <Compile Include="Assets\activeDown.cs" />
      <Compile Include="Assets\boxMoveScript.cs" />
+     <Compile Include="Assets\boxVisibility.cs" />
      <Compile Include="Assets\cameraMovement.cs" />
      <Compile Include="Assets\deactiveDown.cs" />
      <Compile Include="Assets\follow.cs" />

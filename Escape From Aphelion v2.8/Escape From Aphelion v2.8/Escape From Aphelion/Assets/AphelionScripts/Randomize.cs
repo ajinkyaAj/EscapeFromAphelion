@@ -39,11 +39,12 @@ public class Randomize : MonoBehaviour {
 		}
 		if (shipPartFound [0] == 1) {
 
-		GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart1"));
-		newC.transform.localScale = new Vector3(20,20,20);
-		newC.name = "shipPiece1";
-		newC.transform.position = GameObject.Find("polySurface31").transform.position;
-		Destroy (newC.GetComponent("moveBoxScript"));
+			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart1"));
+			newC.transform.localScale = new Vector3(20,20,20);
+			newC.name = "shipPiece1";
+			newC.transform.position = GameObject.Find("polySurface31").transform.position;
+			Destroy (newC.GetComponent("moveBoxScript"));
+			GameObject.Find("polySurface31").GetComponent<MeshRenderer>().enabled = true;
 
 		}
 		if (shipPartFound [1] == 1) {
@@ -52,8 +53,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece2";
 			newC.transform.position = GameObject.Find("polySurface32").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			GameObject.Find("polySurface32").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [2] == 1) {
@@ -62,8 +62,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece3";
 			newC.transform.position = GameObject.Find("polySurface33").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			GameObject.Find("polySurface33").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [3] == 1) {
@@ -72,8 +71,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece4";
 			newC.transform.position = GameObject.Find("polySurface34").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			GameObject.Find("polySurface34").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [4] == 1) {
@@ -82,9 +80,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece5";
 			newC.transform.position = GameObject.Find("polySurface35").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
+			GameObject.Find("polySurface35").GetComponent<MeshRenderer>().enabled = true;
 		}
 		if (shipPartFound [5] == 1) {
 			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart6"));
@@ -92,8 +88,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece6";
 			newC.transform.position = GameObject.Find("polySurface36").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			GameObject.Find("polySurface36").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [6] == 1) {
@@ -102,8 +97,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece7";
 			newC.transform.position = GameObject.Find("polySurface37").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			GameObject.Find("polySurface37").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [7] == 1) {
@@ -112,9 +106,8 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece8";
 			newC.transform.position = GameObject.Find("polySurface38").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
+			GameObject.Find("polySurface38").GetComponent<MeshRenderer>().enabled = true;
+
 		}
 		if (shipPartFound [8] == 1) {
 			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart9"));
@@ -122,18 +115,16 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece9";
 			newC.transform.position = GameObject.Find("polySurface39").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
+			GameObject.Find("polySurface39").GetComponent<MeshRenderer>().enabled = true;
+	
 		}
 		if (shipPartFound [9] == 1) {
 			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart10"));
 			newC.transform.localScale = new Vector3(20,20,20);
 			newC.name = "shipPiece10";
 			newC.transform.position = GameObject.Find("polySurface40").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			Destroy (newC.GetComponent("moveBoxScript"));			
+			GameObject.Find("polySurface40").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [10] == 1) {
@@ -142,8 +133,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece11";
 			newC.transform.position = GameObject.Find("polySurface41").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			GameObject.Find("polySurface41").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [11] == 1) {
@@ -151,9 +141,8 @@ public class Randomize : MonoBehaviour {
 			newC.transform.localScale = new Vector3(20,20,20);
 			newC.name = "shipPiece12";
 			newC.transform.position = GameObject.Find("polySurface42").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			Destroy (newC.GetComponent("moveBoxScript"));	
+			GameObject.Find("polySurface42").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [12] == 1) {
@@ -162,9 +151,8 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece13";
 			newC.transform.position = GameObject.Find("polySurface43").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
+			GameObject.Find("polySurface43").GetComponent<MeshRenderer>().enabled = true;
+
 		}
 		if (shipPartFound [13] == 1) {
 			
@@ -172,18 +160,16 @@ public class Randomize : MonoBehaviour {
 			newC.transform.localScale = new Vector3(20,20,20);
 			newC.name = "shipPiece14";
 			newC.transform.position = GameObject.Find("polySurface44").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			Destroy (newC.GetComponent("moveBoxScript"));		
+			GameObject.Find("polySurface44").GetComponent<MeshRenderer>().enabled = true;
 		}
 		if (shipPartFound [14] == 1) {
 			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart15"));
 			newC.transform.localScale = new Vector3(20,20,20);
 			newC.name = "shipPiece15";
 			newC.transform.position = GameObject.Find("polySurface45").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			Destroy (newC.GetComponent("moveBoxScript"));			
+			GameObject.Find("polySurface45").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [15] == 1) {
@@ -191,9 +177,8 @@ public class Randomize : MonoBehaviour {
 			newC.transform.localScale = new Vector3(20,20,20);
 			newC.name = "shipPiece16";
 			newC.transform.position = GameObject.Find("polySurface46").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			Destroy (newC.GetComponent("moveBoxScript"));		
+			GameObject.Find("polySurface46").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [16] == 1) {
@@ -202,8 +187,7 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece17";
 			newC.transform.position = GameObject.Find("polySurface47").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			GameObject.Find("polySurface47").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [17] == 1) {
@@ -211,9 +195,8 @@ public class Randomize : MonoBehaviour {
 			newC.transform.localScale = new Vector3(20,20,20);
 			newC.name = "shipPiece18";
 			newC.transform.position = GameObject.Find("polySurface48").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
+			Destroy (newC.GetComponent("moveBoxScript"));	
+			GameObject.Find("polySurface48").GetComponent<MeshRenderer>().enabled = true;
 			
 		}
 		if (shipPartFound [18] == 1) {
@@ -222,84 +205,10 @@ public class Randomize : MonoBehaviour {
 			newC.name = "shipPiece19";
 			newC.transform.position = GameObject.Find("polySurface49").transform.position;
 			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
-		}
-		/*
-		if (shipPartFound [19] == 1) {
-			
-			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart20"));
-			newC.transform.localScale = new Vector3(20,20,20);
-			newC.name = "shipPiece20";
-			newC.transform.position = GameObject.Find("polySurface47").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
+			GameObject.Find("polySurface49").GetComponent<MeshRenderer>().enabled = true;			
 			
 		}
 
-		if (shipPartFound [20] == 1) {
-			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart21"));
-			newC.transform.localScale = new Vector3(20,20,20);
-			newC.name = "shipPiece21";
-			newC.transform.position = GameObject.Find("polySurface48").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
-		}
-
-		if (shipPartFound [21] == 1) {
-			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart22"));
-			newC.transform.localScale = new Vector3(20,20,20);
-			newC.name = "shipPiece22";
-			newC.transform.position = GameObject.Find("polySurface49").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
-		}
-
-		if (shipPartFound [22] == 1) {
-			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart23"));
-			newC.transform.localScale = new Vector3(20,20,20);
-			newC.name = "shipPiece23";
-			newC.transform.position = GameObject.Find("polySurface50").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-			
-			
-			
-		}
-
-		if (shipPartFound [23] == 1) {
-			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart24"));
-			newC.transform.localScale = new Vector3(20,20,20);
-			newC.name = "shipPiece24";
-			newC.transform.position = GameObject.Find("polySurface51").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-
-			
-			
-			
-		}
-
-		if (shipPartFound [24] == 1) {
-			GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart25"));
-			newC.transform.localScale = new Vector3(20,20,20);
-			newC.name = "shipPiece25";
-			newC.transform.position = GameObject.Find("polySurface52").transform.position;
-			Destroy (newC.GetComponent("moveBoxScript"));
-
-			
-			
-			
-		}
-*/
-
-
-	
-
-		
 	}
 	
 	// Update is called once per frame
@@ -714,7 +623,7 @@ public class Randomize : MonoBehaviour {
 				}
 				else{
 					col[colcount] = 7;
-					int partNum = Random.Range (1,100);
+					int partNum = Random.Range (1,400);
 					if((partNum == 25)&&(shipPartFound [0] == 0)){
 						GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart1"));
 						newC.tag = "Box";

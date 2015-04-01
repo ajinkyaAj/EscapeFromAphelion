@@ -4,10 +4,17 @@ using System.Collections;
 public class ColliderTest : MonoBehaviour
 {
 
+	void OnTriggerEnter()
+	{
+		Debug.Log ("hi......  " );
+		Destroy (this.gameObject);
+	}
+
 	void OnTriggerExit()
 	{
 		Debug.Log ("Collided!!");
 		Destroy	(GameObject.FindGameObjectWithTag("Box"));
+
 	}
 		
 	/*void OnCollisionStay(Collision collisionInfo)
