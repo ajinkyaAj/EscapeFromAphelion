@@ -31,6 +31,7 @@ public class destroyObjScript : MonoBehaviour {
 
 	public GameObject Explosion;
 
+	private GameObject particleExplode;
     void Awake()
     {
         highscore = PlayerPrefs.GetInt("High Score");
@@ -210,9 +211,9 @@ public class destroyObjScript : MonoBehaviour {
 				{
 					Explosion = GameObject.FindGameObjectWithTag("Explode");
 				}
-				Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
+				particleExplode =  (GameObject)Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
 				Destroy (other.gameObject);
-
+				GameObject.Destroy (particleExplode, 1.0f);
 				
 			}
 			Destroy (gameObject);
@@ -430,9 +431,10 @@ public class destroyObjScript : MonoBehaviour {
 
 				Explosion = GameObject.FindGameObjectWithTag("Explode");
 
-			Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
+			particleExplode =  (GameObject)Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
 			Destroy (other.gameObject);
-			
+			GameObject.Destroy (particleExplode, 1.0f);
+
 			//}
 			Destroy (gameObject);
 			powerUpScript.cbomb = false;
@@ -583,9 +585,9 @@ public class destroyObjScript : MonoBehaviour {
 			{
 				Explosion = GameObject.FindGameObjectWithTag("Explode");
 			}
-			Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
+			particleExplode =  (GameObject)Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
 			Destroy (other.gameObject);
-			
+			GameObject.Destroy (particleExplode, 1.0f);
 			//}
 			Destroy (gameObject);
 			powerUpScript.rbomb = false;
@@ -738,9 +740,9 @@ public class destroyObjScript : MonoBehaviour {
 			{
 				Explosion = GameObject.FindGameObjectWithTag("Explode");
 			}
-			Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
+			particleExplode =  (GameObject)Instantiate (Explosion,other.gameObject.transform.position,new Quaternion());
 			Destroy (other.gameObject);
-			
+			GameObject.Destroy (particleExplode, 1.0f);
 			//}
 			Destroy (gameObject);
 			powerUpScript.lbomb = false;

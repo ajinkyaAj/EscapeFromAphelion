@@ -73,10 +73,13 @@
      <Compile Include="Assets\CameraResolution.cs" />
      <Compile Include="Assets\ColliderTest.cs" />
      <Compile Include="Assets\ColumnController.cs" />
+     <Compile Include="Assets\ExitGame.cs" />
      <Compile Include="Assets\Explosion.cs" />
      <Compile Include="Assets\GlowScript.cs" />
      <Compile Include="Assets\HighScoreTable.cs" />
+     <Compile Include="Assets\LoadingScreen.cs" />
      <Compile Include="Assets\NewGame.cs" />
+     <Compile Include="Assets\PauseScript.cs" />
      <Compile Include="Assets\QuitGame.cs" />
      <Compile Include="Assets\RowController.cs" />
      <Compile Include="Assets\ScrollUV.cs" />
@@ -88,6 +91,7 @@
      <Compile Include="Assets\deactiveDown.cs" />
      <Compile Include="Assets\follow.cs" />
      <Compile Include="Assets\playerMovement.cs" />
+     <Compile Include="Assets\setting.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
