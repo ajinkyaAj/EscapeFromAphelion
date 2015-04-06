@@ -5,6 +5,10 @@ public class Randomize : MonoBehaviour {
 
 	public GameObject newCube;
 
+	public Material glowMaterial;
+
+	public static Material gMaterial;
+
 	public Material[] materials = new Material[6];
 
 	public static Material[] materials1 = new Material[6];
@@ -30,6 +34,8 @@ public class Randomize : MonoBehaviour {
 		materials1[3]= materials[3];
 		materials1[4]= materials[4];
 		materials1[5]= materials[5];
+
+		gMaterial = glowMaterial;
 
 		for(int i = 0; i < 19; i++){
 			string theName = "shipPart" + (i+1);

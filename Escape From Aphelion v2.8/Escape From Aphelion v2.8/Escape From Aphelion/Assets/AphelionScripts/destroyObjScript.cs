@@ -116,6 +116,7 @@ public class destroyObjScript : MonoBehaviour {
 				if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
+
 					powerUp.tag = "powerup";
 					powerUp.name = "PowerUp2";
 					powerUp.transform.localScale = new Vector3 (0.33f, 0.33f, 0.33f);
@@ -157,7 +158,7 @@ public class destroyObjScript : MonoBehaviour {
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [3]) {
 				moveBoxScript.score += 40;
 				if (powerupnum % 10 == 0) {
-					
+
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
 					powerUp.name = "PowerUp4";
@@ -165,7 +166,10 @@ public class destroyObjScript : MonoBehaviour {
 					powerUp.transform.position = other.gameObject.transform.position;
 					//powerUp.transform.SetParent(other.gameObject.transform,false);
 					//powerUp.transform.position =  new Vector3(powerUp.transform.position.x, 0.25f, powerUp.transform.position.z);
-					powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+
+					//powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+
+					powerUp.renderer.sharedMaterial = Randomize.gMaterial;// To get a glow material
 					//Destroy (powerUp.collider);
 					//					powerUp.AddComponent<BoxCollider> ();
 					powerUp.collider.isTrigger = true;
@@ -391,7 +395,9 @@ public class destroyObjScript : MonoBehaviour {
 					powerUp.transform.position = other.gameObject.transform.position;
 					//powerUp.transform.SetParent(other.gameObject.transform,false);
 					//powerUp.transform.position =  new Vector3(powerUp.transform.position.x, 0.25f, powerUp.transform.position.z);
-					powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+					//powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+
+					powerUp.renderer.sharedMaterial = Randomize.gMaterial;// To get a glow material
 					//Destroy (powerUp.collider);
 					//					powerUp.AddComponent<BoxCollider> ();
 					powerUp.collider.isTrigger = true;
@@ -544,7 +550,9 @@ public class destroyObjScript : MonoBehaviour {
 					powerUp.transform.position = other.gameObject.transform.position;
 					//powerUp.transform.SetParent(other.gameObject.transform,false);
 					//powerUp.transform.position =  new Vector3(powerUp.transform.position.x, 0.25f, powerUp.transform.position.z);
-					powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+					//powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+
+					powerUp.renderer.sharedMaterial = Randomize.gMaterial;// To get a glow material
 					//Destroy (powerUp.collider);
 					//					powerUp.AddComponent<BoxCollider> ();
 					powerUp.collider.isTrigger = true;
@@ -698,7 +706,9 @@ public class destroyObjScript : MonoBehaviour {
 					powerUp.transform.position = other.gameObject.transform.position;
 					//powerUp.transform.SetParent(other.gameObject.transform,false);
 					//powerUp.transform.position =  new Vector3(powerUp.transform.position.x, 0.25f, powerUp.transform.position.z);
-					powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+					//powerUp.renderer.sharedMaterial = other.gameObject.renderer.sharedMaterial;
+
+					powerUp.renderer.sharedMaterial = Randomize.gMaterial;// To get a glow material
 					//Destroy (powerUp.collider);
 					//					powerUp.AddComponent<BoxCollider> ();
 					powerUp.collider.isTrigger = true;
