@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 
 public class ExitGame : MonoBehaviour {
-	
+	public AudioClip[] list;
 	private Button b;
 	void Start () 
 	{
+		list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
 		b = this.GetComponent<Button> ();
 		b.onClick.AddListener(() => Hello());
 		
@@ -18,6 +19,8 @@ public class ExitGame : MonoBehaviour {
 	}
 	public void Hello()
 	{
+
+		AudioSource.PlayClipAtPoint (list[0], transform.position, setMusicVolume.volume);
 		Application.Quit();
 	}
 	

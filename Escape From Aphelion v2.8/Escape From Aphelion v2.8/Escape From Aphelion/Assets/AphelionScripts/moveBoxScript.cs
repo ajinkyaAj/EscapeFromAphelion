@@ -48,9 +48,11 @@ public class moveBoxScript : MonoBehaviour {
 
 	public static int flag = 0;
 
+
+	public static bool ShouldRotate = false;
 	//Private Variables
 	
-	
+	public AudioClip[] list;
 	//Variables End
 	
 	
@@ -69,74 +71,75 @@ public class moveBoxScript : MonoBehaviour {
 
 		float halflength = 0.4f;
 
+		list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/DestroySound"),
+			(AudioClip)Resources.Load ("Sounds/ROT"),
+			(AudioClip)Resources.Load ("Sounds/BlockFall")};
 		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		totalscore = score;
 
-		//Rotation Bool  
-		bool ShouldRotate = false;
-		count+=1.0f;
-		if (count < 46 )
-		{
-			ShouldRotate = true;
-			ShouldCreateNewRow = false;
+				if (!PauseScript.isPaused) {
+						totalscore = score;
+
+						//Rotation Bool  
+						//bool ShouldRotate = false;
+						count += 1.0f;
+						if (count < 46) {
+								ShouldRotate = true;
+								ShouldCreateNewRow = false;
 			
-		}
-		else
-		{
-			ShouldRotate = false;
-		}
+						} else {
+								ShouldRotate = false;
+						}
 		
 		
-		if (Input.GetKey (KeyCode.K)) {
-			ShouldRotate = false;
-		}
+						if (Input.GetKey (KeyCode.K)) {
+								ShouldRotate = false;
+						}
 		
-		if (ShouldRotate) 
-		{
-			var initialRotation = Quaternion.identity;
+						if (ShouldRotate) {
+						
+								var initialRotation = Quaternion.identity;
 			
-			/*float currentAngle = transform.rotation.eulerAngles.x;
+								/*float currentAngle = transform.rotation.eulerAngles.x;
 			transform.rotation = 
 				Quaternion.AngleAxis(currentAngle + (Time.deltaTime*-90.0f) , Vector3.right);*/
-			//rigidbody.velocity = Quaternion.AngleAxis(-90.0f, Vector3.right) * rigidbody.velocity;
+								//rigidbody.velocity = Quaternion.AngleAxis(-90.0f, Vector3.right) * rigidbody.velocity;
 			
 			
-			//this.transform.Translate(Vector3.forward * sensitivity * Time.deltaTime ,Space.World);
+								//this.transform.Translate(Vector3.forward * sensitivity * Time.deltaTime ,Space.World);
 			
 			
-			//this.transform.Translate(move * -1 * Time.deltaTime);
-			//this.transform.rotation = this.transform.rotation * Quaternion.AngleAxis(anglePerUpdate, this.transform.right * -1 * Time.deltaTime);
+								//this.transform.Translate(move * -1 * Time.deltaTime);
+								//this.transform.rotation = this.transform.rotation * Quaternion.AngleAxis(anglePerUpdate, this.transform.right * -1 * Time.deltaTime);
 			
-			timer += Time.deltaTime;
-			Vector3 degree = new Vector3(-2.0f,0,0);
-			Quaternion startRotation = transform.rotation;
-			Quaternion endRotation = transform.rotation * Quaternion.Euler(degree);
-			Vector3 currentPosition = transform.position;
+								timer += Time.deltaTime;
+								Vector3 degree = new Vector3 (-2.0f, 0, 0);
+								Quaternion startRotation = transform.rotation;
+								Quaternion endRotation = transform.rotation * Quaternion.Euler (degree);
+								Vector3 currentPosition = transform.position;
 			
-			Vector3 newPosition = currentPosition - new Vector3(0.0f,0.0f,0.865f*0.0205f);
-			transform.position = Vector3.Lerp(currentPosition,newPosition,1.0f);
-			transform.rotation = Quaternion.Slerp(startRotation, endRotation, 1.0f);
+								Vector3 newPosition = currentPosition - new Vector3 (0.0f, 0.0f, 0.865f * 0.0205f);
+								transform.position = Vector3.Lerp (currentPosition, newPosition, 1.0f);
+								transform.rotation = Quaternion.Slerp (startRotation, endRotation, 1.0f);
 			
-		}
+						}
 		
 		
-		if(count > countrotate)
-		{
-			count = 0.0f;
-			ShouldCreateNewRow = true;
-			if(Input.GetKey(KeyCode.B))
-			{
-				GameObject newMinor = Instantiate(gameObject, transform.position + transform.up, transform.transform.rotation) as GameObject;
-			}
-		}
+						if (count > countrotate) {
+				AudioSource.PlayClipAtPoint (list[1], transform.position, setMusicVolume.volume);
+								count = 0.0f;
+								ShouldCreateNewRow = true;
+								if (Input.GetKey (KeyCode.B)) {
+										GameObject newMinor = Instantiate (gameObject, transform.position + transform.up, transform.transform.rotation) as GameObject;
+								}
+						}
 
-	}
-	
+				}
+		}
 	
 	
 

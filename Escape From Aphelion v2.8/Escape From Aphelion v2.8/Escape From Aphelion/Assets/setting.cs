@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 
 public class setting : MonoBehaviour {
-	
+	public AudioClip[] list;
 	private Button b;
 	private GameObject go;
 	Canvas canvas01;
 
 	void Start () 
 	{
+		list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
 		b = this.GetComponent<Button> ();
 		b.onClick.AddListener(() => Hello());
 
@@ -21,9 +22,17 @@ public class setting : MonoBehaviour {
 	}
 	public void Hello()
 	{
-		go = GameObject.Find ("setting_canvas");
+
+
+		LoadingScreen.show ();
+		Application.LoadLevel("HelpScreen");
+		/*
+		go = GameObject.Find ("help_canvas");
 		canvas01 = go.GetComponent<Canvas>();
+		Application.LoadLevel ("SettingsScreen");
 		canvas01.enabled = !canvas01.enabled;
+
+*/
 	}
 	
 	

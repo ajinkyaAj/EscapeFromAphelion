@@ -25,7 +25,7 @@ public class Controller3DExample : MonoBehaviour
     private Transform _playerTransform;
 
 	public static float movespeed = 1.5f;
-
+	public AudioClip[] list;
 
 	public float runMaxAnimationSpeed = 1.0f;
 
@@ -36,6 +36,14 @@ public class Controller3DExample : MonoBehaviour
 
     void Start()
     {
+
+
+		list = new AudioClip[]{(AudioClip)Resources.Load("Sounds/DestroySound"),
+			(AudioClip)Resources.Load("Sounds/Crush"),
+			(AudioClip)Resources.Load("Sounds/BlockFall"), 
+			(AudioClip)Resources.Load("Sounds/wooden-steps-2")};
+
+
         _characterController = GetComponent<CharacterController>();
         _mainCameraTransform = Camera.main.GetComponent<Transform>();
         _transformCache = GetComponent<Transform>();
@@ -62,7 +70,8 @@ public class Controller3DExample : MonoBehaviour
 
         CommonMovementMethod(movement);
 
-
+		//AudioSource.PlayClipAtPoint(list[3], );
+	//	AudioSource.
 
     }
 

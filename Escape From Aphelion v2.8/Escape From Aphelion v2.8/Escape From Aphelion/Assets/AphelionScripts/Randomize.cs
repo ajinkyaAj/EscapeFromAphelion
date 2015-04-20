@@ -629,7 +629,7 @@ public class Randomize : MonoBehaviour {
 				}
 				else{
 					col[colcount] = 7;
-					int partNum = Random.Range (1,400);
+					int partNum = Random.Range (1,200);
 					if((partNum == 25)&&(shipPartFound [0] == 0)){
 						GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart1"));
 						newC.tag = "Box";

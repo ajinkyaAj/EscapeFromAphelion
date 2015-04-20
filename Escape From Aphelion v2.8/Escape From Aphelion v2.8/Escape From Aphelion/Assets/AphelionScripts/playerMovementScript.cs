@@ -4,7 +4,9 @@ using System.Collections;
 public class playerMovementScript : MonoBehaviour {
 
 	public float speed = 6f;
-	
+	public AudioClip[] list;
+
+
 	Vector3 movement;
 	Animator anim;
 	Rigidbody playerRigidbody;
@@ -12,6 +14,13 @@ public class playerMovementScript : MonoBehaviour {
 	float camRayLength = 100f;   
 	void Awake()
 	{
+		list = new AudioClip[]{(AudioClip)Resources.Load("Sounds/DestroySound"),
+			(AudioClip)Resources.Load("Sounds/Crush"),
+			(AudioClip)Resources.Load("Sounds/BlockFall"), 
+			(AudioClip)Resources.Load("Sounds/wooden-steps-2")};
+
+
+
 		floorMask = LayerMask.GetMask ("Floor");
 		//anim = GetComponent <Animator> ();
 		playerRigidbody = GetComponent <Rigidbody> ();
@@ -26,6 +35,7 @@ public class playerMovementScript : MonoBehaviour {
 	}
 	void Move (float h, float v)
 	{
+		//AudioSource.PlayClipAtPoint (list[3], transform.position);
 		movement.Set (h, 0f, v);
 		movement = movement.normalized * speed * Time.deltaTime;
 		playerRigidbody.MovePosition (transform.position + movement);

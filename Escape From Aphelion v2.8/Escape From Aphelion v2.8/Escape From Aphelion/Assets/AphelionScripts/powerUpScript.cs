@@ -11,13 +11,16 @@ public class powerUpScript : MonoBehaviour {
 	public static bool rbomb = false;
 	public static bool lbomb = false;
 	
-	
+	public AudioClip[] list;
 	
 	
 	
 	// Use this for initialization
 	void Start () {
-		
+		list = new AudioClip[]{(AudioClip)Resources.Load("Sounds/P"),
+			(AudioClip)Resources.Load("Sounds/ACT"),
+			(AudioClip)Resources.Load("Sounds/DEA"),
+			(AudioClip)Resources.Load("Sounds/PUD3")};
 	}
 	
 	public void rowbomb(){
@@ -25,9 +28,10 @@ public class powerUpScript : MonoBehaviour {
 		if(destroyObjScript.powerups[1] > 0){
 			if(!rbomb){	
 				
-				
-				
-				
+
+				if (!PauseScript.isPaused) {
+
+					AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 				int row = 0;
 				
 				
@@ -135,6 +139,7 @@ public class powerUpScript : MonoBehaviour {
 				newC.AddComponent("destroyObjScript");
 				
 			}
+			}
 		}
 		
 		
@@ -147,8 +152,8 @@ public class powerUpScript : MonoBehaviour {
 		if(destroyObjScript.powerups[0] > 0){
 
 		if(!cbomb){
-			
-			
+				if (!PauseScript.isPaused) {
+					AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 			int col = 0;
 			
 			
@@ -217,6 +222,7 @@ public class powerUpScript : MonoBehaviour {
 			
 			
 		}
+			}
 		}
 	}
 	
@@ -225,7 +231,8 @@ public class powerUpScript : MonoBehaviour {
 		if(destroyObjScript.powerups[4] > 0){
 			
 			if(!lbomb){
-				
+				if (!PauseScript.isPaused) {
+					AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 				lbomb = true;
 				
 				destroyObjScript.powerups[4]--;
@@ -248,7 +255,7 @@ public class powerUpScript : MonoBehaviour {
 				
 				
 			}
-			
+			}
 		}
 		
 		

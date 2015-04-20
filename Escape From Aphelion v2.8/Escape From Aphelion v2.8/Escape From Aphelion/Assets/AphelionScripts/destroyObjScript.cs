@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class destroyObjScript : MonoBehaviour {
@@ -12,7 +12,7 @@ public class destroyObjScript : MonoBehaviour {
 	public static bool hashit = false;
 	public int prevcount = 0;
 	
-	public static int[] powerups = new int[] {1,1,1,1,1};
+	public static int[] powerups = new int[] {1,1,0,0,1};
 
 	//public int powerup1count = 0;
 	//public int powerup2count = 0;
@@ -22,6 +22,10 @@ public class destroyObjScript : MonoBehaviour {
 
 
 	public static int highscore;//= PlayerPrefs.GetInt("High Score");
+
+	public static float edgeZPos = -5.6f;
+	public int dropRate = 4;
+	public float dropCounter = 0.0f;
 	
 	
 	public static int slowcount = 0;
@@ -30,11 +34,16 @@ public class destroyObjScript : MonoBehaviour {
 	public static bool isFast = false;
 
 	public GameObject Explosion;
+	public AudioClip[] list;
 
 	private GameObject particleExplode;
     void Awake()
     {
         highscore = PlayerPrefs.GetInt("High Score");
+		list = new AudioClip[]{(AudioClip)Resources.Load("Sounds/DestroySound"),
+			(AudioClip)Resources.Load("Sounds/Crush"),
+			(AudioClip)Resources.Load("Sounds/BlockFall"),
+			(AudioClip)Resources.Load("Sounds/PU")};
     }
 
 	
@@ -43,9 +52,10 @@ public class destroyObjScript : MonoBehaviour {
 		bool dest = true;
 		//floorRemove = selectSpace.floor;
 		//destroy = true;
+		//	AudioSource.PlayClipAtPoint (list[0], transform.position, setMusicVolume.volume);
  		if (gameObject.name == "Destroy Object") {
 			Destroy (other.gameObject);
-			
+			AudioSource.PlayClipAtPoint (list[2], transform.position, setMusicVolume.volume);
 			moveBoxScript.score -= 10;
 			
 		}
@@ -61,6 +71,7 @@ public class destroyObjScript : MonoBehaviour {
 		if (gameObject.name == "bomb") {
 			//	gameObject.collider.isTrigger = false;
 			//   gameObject.renderer.enabled = false;
+			AudioSource.PlayClipAtPoint (list[0], transform.position, setMusicVolume.volume);
 			
 
 
@@ -70,7 +81,7 @@ public class destroyObjScript : MonoBehaviour {
 					Randomize.shipPartFound[i] = 1;
 					PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
 					PlayerPrefs.Save();
-					moveBoxScript.score += 3000;
+					moveBoxScript.score += 500;
 					GameObject newC = (GameObject)Instantiate(Resources.Load(theName));
 					newC.transform.localScale = new Vector3(20,20,20);
 					string pieceName = "shipPiece" + (i+1);
@@ -85,12 +96,12 @@ public class destroyObjScript : MonoBehaviour {
 
 
 
-			int powerupnum = Random.Range (1, 21);
+			int powerupnum = Random.Range (1, 1001);
 			
 			
 			if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [0]) {
 				moveBoxScript.score += 10;
-				if (powerupnum % 4 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 4 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -106,14 +117,15 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 					
 				}
 				
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [1]) {
 				moveBoxScript.score += 20;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 
@@ -130,13 +142,14 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [2]) {
 				moveBoxScript.score += 30;
-				if (powerupnum % 10 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 10 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -152,12 +165,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [3]) {
 				moveBoxScript.score += 40;
-				if (powerupnum % 10 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 10 == 0) {
 
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -176,13 +190,14 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [4]) {
 				moveBoxScript.score += 50;
-				if (powerupnum % 4 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 4 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -198,7 +213,8 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [5]) {
@@ -228,7 +244,7 @@ public class destroyObjScript : MonoBehaviour {
 			
 			
 			if (gameObject.name == "PowerUp1") {
-
+				AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 				if(powerups[0] < 3)
 					powerups [0]++;
 				//powerup1count++;
@@ -238,7 +254,7 @@ public class destroyObjScript : MonoBehaviour {
 				
 				
 			} else if (gameObject.name == "PowerUp2") {
-
+				AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 				if(powerups[1] < 3)
 					powerups [1]++;
 				//powerup2count++;
@@ -247,7 +263,7 @@ public class destroyObjScript : MonoBehaviour {
 				//Debug.Log("1 " + powerups[1]);
 				
 			} else if (gameObject.name == "PowerUp3") {
-				
+				AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 				//powerups [2]++;
 				//powerup3count++;
 				Destroy (gameObject);
@@ -256,6 +272,7 @@ public class destroyObjScript : MonoBehaviour {
 
 				
 				moveBoxScript.countrotate = 500;
+				movePU.countrotate = 500;
 				
 				slowcount = 0;
 				
@@ -264,7 +281,7 @@ public class destroyObjScript : MonoBehaviour {
 
 				
 			} else if (gameObject.name == "PowerUp4") {
-				
+				AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 				//powerups [3]++;
 				//powerup4count++;
 				Destroy (gameObject);
@@ -280,7 +297,7 @@ public class destroyObjScript : MonoBehaviour {
 		
 				
 			} else if (gameObject.name == "PowerUp5") {
-
+				AudioSource.PlayClipAtPoint (list[3], transform.position, setMusicVolume.volume);
 				if(powerups[4] < 3)
 					powerups [4]++;
 				//powerup5count++;
@@ -294,34 +311,38 @@ public class destroyObjScript : MonoBehaviour {
 
 
 		} else if (gameObject.name == "colbomb") {
-			
+
+
+
+			AudioSource.PlayClipAtPoint (list[0], transform.position, setMusicVolume.volume);
+
 			
 			for(int i = 0; i < 19; i++){
 				string theName = "shipPart" + (i+1);
 				if(other.gameObject.name == theName){
-					Randomize.shipPartFound[i] = 1;
-					PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
-					PlayerPrefs.Save();
-					moveBoxScript.score += 3000;
-					GameObject newC = (GameObject)Instantiate(Resources.Load(theName));
-					newC.transform.localScale = new Vector3(20,20,20);
-					string pieceName = "shipPiece" + (i+1);
-					newC.name = pieceName;
-					string posName = "polySurface" + (i+31);
-					newC.transform.position = GameObject.Find(posName).transform.position;
-					Destroy (newC.GetComponent("moveBoxScript"));
-					GameObject.Find(posName).GetComponent<MeshRenderer>().enabled = true;
+					//Randomize.shipPartFound[i] = 1;
+					//PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
+					//PlayerPrefs.Save();
+					moveBoxScript.score += 500;
+					//GameObject newC = (GameObject)Instantiate(Resources.Load(theName));
+					//newC.transform.localScale = new Vector3(20,20,20);
+					//string pieceName = "shipPiece" + (i+1);
+					//newC.name = pieceName;
+					//string posName = "polySurface" + (i+31);
+					//newC.transform.position = GameObject.Find(posName).transform.position;
+					//Destroy (newC.GetComponent("moveBoxScript"));
+					//GameObject.Find(posName).GetComponent<MeshRenderer>().enabled = true;
 				}
 				
 			}
 			
 			
-			int powerupnum = Random.Range (1, 11);
+			int powerupnum = Random.Range (1, 1001);
 			
 			
 			if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [0]) {
 				moveBoxScript.score += 10;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -337,14 +358,15 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 					
 				}
 				
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [1]) {
 				moveBoxScript.score += 20;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -360,12 +382,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [2]) {
 				moveBoxScript.score += 30;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -381,12 +404,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [3]) {
 				moveBoxScript.score += 40;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -404,12 +428,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [4]) {
 				moveBoxScript.score += 50;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -425,7 +450,8 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [5]) {
@@ -450,34 +476,37 @@ public class destroyObjScript : MonoBehaviour {
 		
 		
 		else if (gameObject.name == "rowbomb") {
+
+			AudioSource.PlayClipAtPoint (list[0], transform.position, setMusicVolume.volume);
+
 			
 			
 			for(int i = 0; i < 19; i++){
 				string theName = "shipPart" + (i+1);
 				if(other.gameObject.name == theName){
-					Randomize.shipPartFound[i] = 1;
-					PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
-					PlayerPrefs.Save();
-					moveBoxScript.score += 3000;
-					GameObject newC = (GameObject)Instantiate(Resources.Load(theName));
-					newC.transform.localScale = new Vector3(20,20,20);
-					string pieceName = "shipPiece" + (i+1);
-					newC.name = pieceName;
-					string posName = "polySurface" + (i+31);
-					newC.transform.position = GameObject.Find(posName).transform.position;
-					Destroy (newC.GetComponent("moveBoxScript"));
-					GameObject.Find(posName).GetComponent<MeshRenderer>().enabled = true;
+					//Randomize.shipPartFound[i] = 1;
+					//PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
+					//PlayerPrefs.Save();
+					moveBoxScript.score += 500;
+					//GameObject newC = (GameObject)Instantiate(Resources.Load(theName));
+					//newC.transform.localScale = new Vector3(20,20,20);
+					//string pieceName = "shipPiece" + (i+1);
+					//newC.name = pieceName;
+					//string posName = "polySurface" + (i+31);
+					//newC.transform.position = GameObject.Find(posName).transform.position;
+					//Destroy (newC.GetComponent("moveBoxScript"));
+					//GameObject.Find(posName).GetComponent<MeshRenderer>().enabled = true;
 				}
 				
 			}
 			
 			
-			int powerupnum = Random.Range (1, 11);
+			int powerupnum = Random.Range (1, 1001);
 			
 			
 			if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [0]) {
 				moveBoxScript.score += 10;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -493,13 +522,14 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 										
 				}
 				
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [1]) {
 				moveBoxScript.score += 20;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -515,12 +545,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [2]) {
 				moveBoxScript.score += 30;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -536,12 +567,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [3]) {
 				moveBoxScript.score += 40;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -559,12 +591,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [4]) {
 				moveBoxScript.score += 50;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -580,7 +613,8 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [5]) {
@@ -606,34 +640,38 @@ public class destroyObjScript : MonoBehaviour {
 		
 		
 		else if (gameObject.name == "largeBomb") {
+
+
+			AudioSource.PlayClipAtPoint (list[0], transform.position, setMusicVolume.volume);
+
 			
 			
 			
 			for(int i = 0; i < 19; i++){
 				string theName = "shipPart" + (i+1);
 				if(other.gameObject.name == theName){
-					Randomize.shipPartFound[i] = 1;
-					PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
-					PlayerPrefs.Save();
-					moveBoxScript.score += 3000;
-					GameObject newC = (GameObject)Instantiate(Resources.Load(theName));
-					newC.transform.localScale = new Vector3(20,20,20);
-					string pieceName = "shipPiece" + (i+1);
-					newC.name = pieceName;
-					string posName = "polySurface" + (i+31);
-					newC.transform.position = GameObject.Find(posName).transform.position;
-					Destroy (newC.GetComponent("moveBoxScript"));
-					GameObject.Find(posName).GetComponent<MeshRenderer>().enabled = true;
+					//Randomize.shipPartFound[i] = 1;
+					//PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
+					//PlayerPrefs.Save();
+					moveBoxScript.score += 500;
+					//GameObject newC = (GameObject)Instantiate(Resources.Load(theName));
+					//newC.transform.localScale = new Vector3(20,20,20);
+					//string pieceName = "shipPiece" + (i+1);
+					//newC.name = pieceName;
+					//string posName = "polySurface" + (i+31);
+					//newC.transform.position = GameObject.Find(posName).transform.position;
+					//Destroy (newC.GetComponent("moveBoxScript"));
+					//GameObject.Find(posName).GetComponent<MeshRenderer>().enabled = true;
 				}
 				
 			}
 			
-			int powerupnum = Random.Range (1, 11);
+			int powerupnum = Random.Range (1, 1001);
 			
 			
 			if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [0]) {
 				moveBoxScript.score += 10;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -649,13 +687,14 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 				
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [1]) {
 				moveBoxScript.score += 20;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -671,12 +710,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [2]) {
 				moveBoxScript.score += 30;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -692,12 +732,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [3]) {
 				moveBoxScript.score += 40;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -715,12 +756,13 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [4]) {
 				moveBoxScript.score += 50;
-				if (powerupnum % 5 == 0) {
+				if(powerupnum % dropRate == 0){//if (powerupnum % 5 == 0) {
 					
 					GameObject powerUp = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 					powerUp.tag = "powerup";
@@ -736,7 +778,8 @@ public class destroyObjScript : MonoBehaviour {
 					//powerUp.AddComponent<Rigidbody>();
 					//powerUp.rigidbody.isKinematic = true;
 					powerUp.AddComponent ("destroyObjScript");
-					powerUp.AddComponent ("moveBoxScript");
+					//powerUp.AddComponent ("moveBoxScript");
+					powerUp.AddComponent ("movePU");
 					
 				}
 			} else if (other.gameObject.renderer.sharedMaterial == Randomize.materials1 [5]) {
@@ -798,6 +841,19 @@ public class destroyObjScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		
+		dropCounter++;
+		
+		if(dropCounter > 500){
+			
+			dropCounter = 0;
+			if(dropRate < 15){
+				dropRate++;
+				
+			}
+			
+		}
 		
 		
 		if ((hashit)&&((prevcount+5)<=(floorcount))) {
@@ -807,11 +863,21 @@ public class destroyObjScript : MonoBehaviour {
 			Vector3 newPosition = currentPosition;
 			newPosition.z += 0.806f;
 			destroybox.transform.position = newPosition;
-			
+			edgeZPos += 0.806f;
 			
 			prevcount = floorcount;
 			
 			
+			
+		}
+
+		foreach (GameObject thisPower in GameObject.FindGameObjectsWithTag("powerup")) {
+			//GameObject thisPower = GameObject.Find (PowerName);
+			if(thisPower.transform.position.z < edgeZPos){
+				
+				Destroy (thisPower);
+				
+			}
 			
 		}
 
@@ -821,14 +887,16 @@ public class destroyObjScript : MonoBehaviour {
 						powerUpScript.lbomb = false;
 						powerUpScript.cbomb = false;
                         selectSpace.placedB = false;
-			for(int i = 0; i < 5; i++){
+			/*for(int i = 0; i < 5; i++){
 
 				powerups[i] = 1;
 
-			}
+			}*/
+			powerups[0] = powerups[1] = powerups[4] = 1;
 			if(isSlowed){
 				isSlowed = false;
 				moveBoxScript.countrotate = 200;
+				movePU.countrotate = 200;
 
 			}
 			if(isFast){
@@ -836,6 +904,7 @@ public class destroyObjScript : MonoBehaviour {
 				Controller3DExample.movespeed = 1.5f;
 				
 			}
+			PauseScript.isPaused = false;
 						Application.LoadLevel ("GameOver");
 						if (moveBoxScript.score > highscore) {
 				
@@ -854,19 +923,19 @@ public class destroyObjScript : MonoBehaviour {
 						GameObject Vinc = GameObject.Find ("Vincent");
 
 						foreach (GameObject cubeCheck in GameObject.FindGameObjectsWithTag("Box")) {
+
 								//if(cubeCheck.transform.position == Vinc.transform.position){
-								if (cubeCheck.name == "newCube") {
-										if ((cubeCheck.transform.position.x + .4f > Vinc.transform.position.x) && (cubeCheck.transform.position.z + .4f > Vinc.transform.position.z) && (cubeCheck.transform.position.x - .4f < Vinc.transform.position.x) && (cubeCheck.transform.position.z - .4f < Vinc.transform.position.z)) {
-												Destroy (Vinc);
+								if (cubeCheck.name == "newCube") 
+								{
+					//AudioSource.PlayClipAtPoint (list[1], transform.position, setMusicVolume.volume);
+									if ((cubeCheck.transform.position.x + .4f > Vinc.transform.position.x) && (cubeCheck.transform.position.z + .4f > Vinc.transform.position.z) && (cubeCheck.transform.position.x - .4f < Vinc.transform.position.x) && (cubeCheck.transform.position.z - .4f < Vinc.transform.position.z)) 
+									{
+						AudioSource.PlayClipAtPoint (list[1], transform.position, setMusicVolume.volume);
 
-										}
-			
+										Destroy (Vinc);
+									}
 								}
-								//}
-
-
 						}
-
 				}
 
 
@@ -876,6 +945,7 @@ public class destroyObjScript : MonoBehaviour {
 			
 			isSlowed = false;
 			moveBoxScript.countrotate = 200;
+			movePU.countrotate = 200;
 			
 			
 		}
