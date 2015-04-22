@@ -11,7 +11,7 @@ public class back	 : MonoBehaviour {
 	
 	void Start () 
 	{
-		list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
+		//list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
 		b = this.GetComponent<Button> ();
 		b.onClick.AddListener(() => Hello());
 		

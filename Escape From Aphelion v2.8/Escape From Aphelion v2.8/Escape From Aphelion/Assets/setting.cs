@@ -11,7 +11,7 @@ public class setting : MonoBehaviour {
 
 	void Start () 
 	{
-		list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
+		//list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
 		b = this.GetComponent<Button> ();
 		b.onClick.AddListener(() => Hello());
 
@@ -25,7 +25,7 @@ public class setting : MonoBehaviour {
 
 
 		LoadingScreen.show ();
-		Application.LoadLevel("HelpScreen");
+		Application.LoadLevel("Intro");
 		/*
 		go = GameObject.Find ("help_canvas");
 		canvas01 = go.GetComponent<Canvas>();

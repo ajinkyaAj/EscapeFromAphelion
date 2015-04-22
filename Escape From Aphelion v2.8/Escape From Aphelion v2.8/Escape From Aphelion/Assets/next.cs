@@ -11,7 +11,7 @@ public class next : MonoBehaviour {
 	
 	void Start () 
 	{
-		list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
+		//list = new AudioClip[]{(AudioClip)Resources.Load ("Sounds/menu")};
 		b = this.GetComponent<Button> ();
 		b.onClick.AddListener(() => Hello());
 		
@@ -25,7 +25,7 @@ public class next : MonoBehaviour {
 		
 		
 		LoadingScreen.show ();
-		Application.LoadLevel("HelpScreen_2");
+		Application.LoadLevel("HelpScreen");
 
 	}
 	

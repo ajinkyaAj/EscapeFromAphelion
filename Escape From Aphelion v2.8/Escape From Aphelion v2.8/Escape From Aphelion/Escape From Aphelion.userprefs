@@ -1,23 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\network\NetworkManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\gameWin.cs">
     <Files>
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\AI\StatementMachine\HeroAI.cs" Line="57" Column="25" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\network\NetworkManager.cs" Line="199" Column="61" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\GUI\GUI_Temp.cs" Line="239" Column="20" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\network\NetworkManagerOld.cs" Line="188" Column="59" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\network\NetworkCharacter.cs" Line="51" Column="6" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\EventHandler.cs" Line="38" Column="27" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\AI\StatementMachine\CreatureAI.cs" Line="78" Column="11" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\Hero\HeroViking.cs" Line="18" Column="88" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\BaseClasses\ChooseableBase.cs" Line="5" Column="1" />
-      <File FileName="..\..\..\..\..\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\Hero\HeroWitch.boo" Line="5" Column="23" />
+      <File FileName="Assets\AphelionScripts\mainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\backToIntro.cs" Line="14" Column="5" />
+      <File FileName="Assets\back.cs" Line="14" Column="5" />
+      <File FileName="Assets\setting.cs" Line="14" Column="5" />
+      <File FileName="Assets\next.cs" Line="14" Column="5" />
+      <File FileName="Assets\goToMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\nextHelp.cs" Line="14" Column="5" />
+      <File FileName="Assets\boxVisibility.cs" Line="10" Column="30" />
+      <File FileName="Assets\gameWin.cs" Line="30" Column="20" />
+      <File FileName="Assets\AphelionScripts\gameOverScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\MainMenu.cs" Line="29" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="D:\Network-ai\TowerDefense4.5\TowerDefense4.5\Assets\Scripts\AI\StatementMachine\HeroAI.cs" line="159" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

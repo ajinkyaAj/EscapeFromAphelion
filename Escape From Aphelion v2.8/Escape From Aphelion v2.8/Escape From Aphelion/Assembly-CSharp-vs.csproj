@@ -90,6 +90,7 @@
      <Compile Include="Assets\TouchButtonLogic.cs" />
      <Compile Include="Assets\activeDown.cs" />
      <Compile Include="Assets\back.cs" />
+     <Compile Include="Assets\backToIntro.cs" />
      <Compile Include="Assets\boxMoveScript.cs" />
      <Compile Include="Assets\boxVisibility.cs" />
      <Compile Include="Assets\cameraMovement.cs" />
@@ -101,6 +102,7 @@
      <Compile Include="Assets\mainResume.cs" />
      <Compile Include="Assets\menu.cs" />
      <Compile Include="Assets\next.cs" />
+     <Compile Include="Assets\nextHelp.cs" />
      <Compile Include="Assets\playerMovement.cs" />
      <Compile Include="Assets\resumeGame.cs" />
      <Compile Include="Assets\setMusicVolume.cs" />
