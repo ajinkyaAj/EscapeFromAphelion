@@ -24,7 +24,7 @@ public class destroyObjScript : MonoBehaviour {
 	public static int highscore;//= PlayerPrefs.GetInt("High Score");
 
 	public static float edgeZPos = -5.6f;
-	public int dropRate = 4;
+	public int dropRate = 2;
 	public float dropCounter = 0.0f;
 	
 	
