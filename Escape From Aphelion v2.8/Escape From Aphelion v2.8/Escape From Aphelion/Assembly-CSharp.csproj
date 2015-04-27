@@ -109,6 +109,7 @@
      <Compile Include="Assets\setVolume.cs" />
      <Compile Include="Assets\setting.cs" />
      <Compile Include="Assets\settings_mainmenu.cs" />
+     <Compile Include="Assets\winBlocks.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />

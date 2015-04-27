@@ -28,6 +28,22 @@ public class Randomize : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		/*
+		for(int i = 0; i < 18; i++){
+			Randomize.shipPartFound[i] = 1;
+			
+		}
+
+		for(int i = 0; i < 18; i++){
+			string theName = "shipPart" + (i+1);
+			
+			PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
+			PlayerPrefs.Save();
+			
+			
+			
+		}
+*/
 		materials1[0]= materials[0];
 		materials1[1]= materials[1];
 		materials1[2]= materials[2];
@@ -629,7 +645,7 @@ public class Randomize : MonoBehaviour {
 				}
 				else{
 					col[colcount] = 7;
-					int partNum = Random.Range (1,200);
+					int partNum = Random.Range (1, 200);
 					if((partNum == 25)&&(shipPartFound [0] == 0)){
 						GameObject newC = (GameObject)Instantiate(Resources.Load("shipPart1"));
 						newC.tag = "Box";

@@ -6,6 +6,7 @@ public class boxVisibility : MonoBehaviour {
 	public static int shipPartFound = 0;
 	// Use this for initialization
 	void Start () {
+
 		for(int i = 0; i < 19; i++){
 			string theName = "shipPart" + (i+1);
 			shipPartFound = PlayerPrefs.GetInt(theName);

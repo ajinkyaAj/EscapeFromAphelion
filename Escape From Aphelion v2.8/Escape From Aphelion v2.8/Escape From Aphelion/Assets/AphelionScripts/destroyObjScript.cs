@@ -14,6 +14,15 @@ public class destroyObjScript : MonoBehaviour {
 	
 	public static int[] powerups = new int[] {1,1,0,0,1};
 
+
+		
+
+
+	public int timesCompleted;
+
+	private int counter;
+	private int flag = 0;
+	float timer = 0.0f;
 	//public int powerup1count = 0;
 	//public int powerup2count = 0;
 	//public int powerup3count = 0;
@@ -39,6 +48,9 @@ public class destroyObjScript : MonoBehaviour {
 	private GameObject particleExplode;
     void Awake()
     {
+
+		timesCompleted = PlayerPrefs.GetInt ("Completed");
+
         highscore = PlayerPrefs.GetInt("High Score");
 		list = new AudioClip[]{(AudioClip)Resources.Load("Sounds/DestroySound"),
 			(AudioClip)Resources.Load("Sounds/Crush"),
@@ -905,7 +917,58 @@ public class destroyObjScript : MonoBehaviour {
 				
 			}
 			PauseScript.isPaused = false;
-						Application.LoadLevel ("GameOver");
+					
+			for (int i = 0; i < 19; i++) {
+				string theName = "shipPart" + (i + 1);
+				flag = PlayerPrefs.GetInt (theName);
+				if(flag == 1)
+				{
+					counter ++;
+				}
+				flag = 0;
+			}
+			//Debug.Log ("Count.. = " + counter);
+			// Change counter here to modify finish logic
+			// should be 19 in the actual game
+			if (counter >= 19) {
+				Application.LoadLevel ("YouWin");
+				//timer += Time.deltaTime;
+				//if (timer > 1.0) {
+				
+				timesCompleted++;
+				PlayerPrefs.SetInt("Completed", timesCompleted);
+				PlayerPrefs.Save();
+				for(int i = 0; i < 19; i++){
+					Randomize.shipPartFound[i] = 0;
+					
+				}
+				
+				for(int i = 0; i < 19; i++){
+					string theName = "shipPart" + (i+1);
+					
+					PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
+					PlayerPrefs.Save();
+					
+					
+					
+				}
+				
+
+				//LoadingScreen.show ();
+
+				//}
+			}
+			else{
+				
+				Application.LoadLevel ("GameOver");
+				
+			}
+			counter = 0;
+			
+			
+			//	Application.LoadLevel ("GameOver");
+
+
 						if (moveBoxScript.score > highscore) {
 				
 								highscore = moveBoxScript.score;
@@ -935,6 +998,25 @@ public class destroyObjScript : MonoBehaviour {
 										Destroy (Vinc);
 									}
 								}
+
+				
+							for(int i = 0; i < 19; i++){
+								string theName = "shipPart" + (i+1);
+
+					if (cubeCheck.name == theName) 
+					{
+						//AudioSource.PlayClipAtPoint (list[1], transform.position, setMusicVolume.volume);
+						if ((cubeCheck.transform.position.x + .4f > Vinc.transform.position.x) && (cubeCheck.transform.position.z + .4f > Vinc.transform.position.z) && (cubeCheck.transform.position.x - .4f < Vinc.transform.position.x) && (cubeCheck.transform.position.z - .4f < Vinc.transform.position.z)) 
+						{
+							AudioSource.PlayClipAtPoint (list[1], transform.position, setMusicVolume.volume);
+							
+							Destroy (Vinc);
+						}
+					}
+				}
+
+
+
 						}
 				}
 
@@ -968,6 +1050,8 @@ public class destroyObjScript : MonoBehaviour {
 		string oldName;
 		newScore = score;
 		newName = name;
+		//Debug.Log ("score" + score);
+		PlayerPrefs.SetInt("Player Score", score);
 		for(int i=0;i<10;i++){
 			if(PlayerPrefs.HasKey(i+"Score")){
 				if(PlayerPrefs.GetInt(i+"Score")<newScore){

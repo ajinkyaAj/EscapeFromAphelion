@@ -3,9 +3,9 @@ using System.Collections;
 
 public class gameWin : MonoBehaviour {
 
-	private int counter;
-	private int flag = 0;
-	float timer = 0.0f;
+	//private int counter;
+	//private int flag = 0;
+	//float timer = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,7 @@ public class gameWin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		/*
 		for (int i = 0; i < 19; i++) {
 			string theName = "shipPart" + (i + 1);
 			flag = PlayerPrefs.GetInt (theName);
@@ -36,5 +36,6 @@ public class gameWin : MonoBehaviour {
 						}
 				}
 		counter = 0;
+		*/
 	}
 }

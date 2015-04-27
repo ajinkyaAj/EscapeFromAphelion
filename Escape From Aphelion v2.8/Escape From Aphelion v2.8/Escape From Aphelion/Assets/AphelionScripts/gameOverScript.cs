@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class gameOverScript : MonoBehaviour {
 
-	float timer;
 
+	float timer;
+	Text txt;
+
+	//public GUISkin myskin;
 	// Use this for initialization
+	public GUIStyle style;
 	void Start () 
 	{
 		timer = 0.0f;
@@ -14,10 +19,18 @@ public class gameOverScript : MonoBehaviour {
 	void OnGUI()
 	{
 
+
+
 		//Application.LoadLevel("GameOver");
-		string _Content = "Seconds Left.." + timer;
-		GUI.Label(new Rect(Screen.width/1.2f, Screen.height/13.0f, Screen.width/5.0f, Screen.height/10.0f),_Content);
-	//	GUI.Label (Rect (10, 10, 100, 20), "Hello World!");
+		int temp = PlayerPrefs.GetInt ("Player Score");
+
+		string _Content = "Your Score is : "+ temp;
+		//GUI.skin = myskin;
+		style.fontSize = 30;
+	    GUI.Label(new Rect(Screen.width/1.4f, Screen.height/13.0f, Screen.width/5.0f, Screen.height/10.0f),_Content,style);
+		//GUI.Label(new Rect(Screen.width/2f, Screen.height/7.0f, Screen.width/5.0f, Screen.height/10.0f),_Content);
+		//	GUI.Label (Rect (10, 10, 100, 20), "Hello World!");
+
 
 	}
 
@@ -29,7 +42,6 @@ public class gameOverScript : MonoBehaviour {
 		timer += Time.deltaTime;
 		if (timer > 3.0) 
 		{
-
 			Application.LoadLevel("MainMenu");
 		}
 	}
