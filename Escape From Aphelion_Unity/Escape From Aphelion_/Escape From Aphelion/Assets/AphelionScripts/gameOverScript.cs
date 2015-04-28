@@ -26,7 +26,7 @@ public class gameOverScript : MonoBehaviour {
 
 		string _Content = "Your Score \n"+ temp;
 		//GUI.skin = myskin;
-		style.fontSize = 20;
+		style.fontSize = 33;
 	    GUI.Label(new Rect(Screen.width/1.4f, Screen.height/13.0f, Screen.width/5.0f, Screen.height/10.0f),_Content,style);
 		//GUI.Label(new Rect(Screen.width/2f, Screen.height/7.0f, Screen.width/5.0f, Screen.height/10.0f),_Content);
 		//	GUI.Label (Rect (10, 10, 100, 20), "Hello World!");
