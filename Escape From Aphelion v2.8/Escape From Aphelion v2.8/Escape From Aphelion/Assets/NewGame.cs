@@ -21,11 +21,13 @@ public class NewGame : MonoBehaviour {
 	{
 		//AudioSource.PlayClipAtPoint (list[0], transform.position, setMusicVolume.volume);
 
+
+
 		//foreach (GameObject thisSound in GameObject.Find("One shot audio")){
 		//GameObject thisSound = GameObject.Find ("One shot audio");
 
 	//	}
-
+		destroyObjScript.hasBeenHere = false;
 		LoadingScreen.show ();
 		Application.LoadLevel("SceneWithRotation");
 	}

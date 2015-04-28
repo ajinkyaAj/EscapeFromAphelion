@@ -16,7 +16,7 @@ public class destroyObjScript : MonoBehaviour {
 
 
 		
-
+	public static bool hasBeenHere = false;
 
 	public int timesCompleted;
 
@@ -862,6 +862,7 @@ public class destroyObjScript : MonoBehaviour {
 			dropCounter = 0;
 			if(dropRate < 15){
 				dropRate++;
+				//Debug.Log ("drop rate"+ dropRate);
 				
 			}
 			
@@ -894,94 +895,94 @@ public class destroyObjScript : MonoBehaviour {
 		}
 
 		if (GameObject.Find ("Vincent") == null) {
-         
-						powerUpScript.rbomb = false;
-						powerUpScript.lbomb = false;
-						powerUpScript.cbomb = false;
-                        selectSpace.placedB = false;
-			/*for(int i = 0; i < 5; i++){
+						if (!hasBeenHere) {
+				hasBeenHere = true;
+								powerUpScript.rbomb = false;
+								powerUpScript.lbomb = false;
+								powerUpScript.cbomb = false;
+								selectSpace.placedB = false;
+								/*for(int i = 0; i < 5; i++){
 
 				powerups[i] = 1;
 
 			}*/
-			powerups[0] = powerups[1] = powerups[4] = 1;
-			if(isSlowed){
-				isSlowed = false;
-				moveBoxScript.countrotate = 200;
-				movePU.countrotate = 200;
+								powerups [0] = powerups [1] = powerups [4] = 1;
+								if (isSlowed) {
+										isSlowed = false;
+										moveBoxScript.countrotate = 200;
+										movePU.countrotate = 200;
 
-			}
-			if(isFast){
-				isFast = false;
-				Controller3DExample.movespeed = 1.5f;
+								}
+								if (isFast) {
+										isFast = false;
+										Controller3DExample.movespeed = 1.5f;
 				
-			}
-			PauseScript.isPaused = false;
+								}
+								PauseScript.isPaused = false;
 					
-			for (int i = 0; i < 19; i++) {
-				string theName = "shipPart" + (i + 1);
-				flag = PlayerPrefs.GetInt (theName);
-				if(flag == 1)
-				{
-					counter ++;
-				}
-				flag = 0;
-			}
-			//Debug.Log ("Count.. = " + counter);
-			// Change counter here to modify finish logic
-			// should be 19 in the actual game
-			if (counter >= 19) {
-				Application.LoadLevel ("YouWin");
-				//timer += Time.deltaTime;
-				//if (timer > 1.0) {
+								for (int i = 0; i < 19; i++) {
+										string theName = "shipPart" + (i + 1);
+										flag = PlayerPrefs.GetInt (theName);
+										if (flag == 1) {
+												counter ++;
+										}
+										flag = 0;
+								}
+								//Debug.Log ("Count.. = " + counter);
+								// Change counter here to modify finish logic
+								// should be 19 in the actual game
+								if (counter >= 19) {
+										Application.LoadLevel ("YouWin");
+										//timer += Time.deltaTime;
+										//if (timer > 1.0) {
 				
-				timesCompleted++;
-				PlayerPrefs.SetInt("Completed", timesCompleted);
-				PlayerPrefs.Save();
-				for(int i = 0; i < 19; i++){
-					Randomize.shipPartFound[i] = 0;
+										timesCompleted++;
+										PlayerPrefs.SetInt ("Completed", timesCompleted);
+										PlayerPrefs.Save ();
+										for (int i = 0; i < 19; i++) {
+												Randomize.shipPartFound [i] = 0;
 					
-				}
+										}
 				
-				for(int i = 0; i < 19; i++){
-					string theName = "shipPart" + (i+1);
+										for (int i = 0; i < 19; i++) {
+												string theName = "shipPart" + (i + 1);
 					
-					PlayerPrefs.SetInt(theName, Randomize.shipPartFound[i]);
-					PlayerPrefs.Save();
+												PlayerPrefs.SetInt (theName, Randomize.shipPartFound [i]);
+												PlayerPrefs.Save ();
 					
 					
 					
-				}
+										}
 				
 
-				//LoadingScreen.show ();
+										//LoadingScreen.show ();
 
-				//}
-			}
-			else{
+										//}
+								} else {
 				
-				Application.LoadLevel ("GameOver");
+										Application.LoadLevel ("GameOver");
 				
-			}
-			counter = 0;
+								}
+								counter = 0;
 			
 			
-			//	Application.LoadLevel ("GameOver");
+								//	Application.LoadLevel ("GameOver");
 
 
-						if (moveBoxScript.score > highscore) {
+								if (moveBoxScript.score > highscore) {
 				
-								highscore = moveBoxScript.score;
+										highscore = moveBoxScript.score;
 				
-						}
-						AddScore ("aaaa", moveBoxScript.score );
+								}
+								AddScore ("aaaa", moveBoxScript.score);
 
-						PlayerPrefs.SetInt("High Score", highscore);
-						PlayerPrefs.Save();
+								PlayerPrefs.SetInt ("High Score", highscore);
+								PlayerPrefs.Save ();
 						
 			
-						moveBoxScript.score = 0;
-				} else {
+								moveBoxScript.score = 0;
+						}
+				}else {
 
 						GameObject Vinc = GameObject.Find ("Vincent");
 
@@ -1052,6 +1053,7 @@ public class destroyObjScript : MonoBehaviour {
 		newName = name;
 		//Debug.Log ("score" + score);
 		PlayerPrefs.SetInt("Player Score", score);
+
 		for(int i=0;i<10;i++){
 			if(PlayerPrefs.HasKey(i+"Score")){
 				if(PlayerPrefs.GetInt(i+"Score")<newScore){

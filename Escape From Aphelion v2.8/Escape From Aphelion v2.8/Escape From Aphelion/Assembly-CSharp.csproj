@@ -57,6 +57,7 @@
      <Compile Include="Assets\AphelionScripts\moveBoxScript.cs" />
      <Compile Include="Assets\AphelionScripts\movePU.cs" />
      <Compile Include="Assets\AphelionScripts\playerMovementScript.cs" />
+     <Compile Include="Assets\AphelionScripts\playerPos.cs" />
      <Compile Include="Assets\AphelionScripts\powerUpScript.cs" />
      <Compile Include="Assets\AphelionScripts\randomCubeSelect.cs" />
      <Compile Include="Assets\AphelionScripts\rowText.cs" />

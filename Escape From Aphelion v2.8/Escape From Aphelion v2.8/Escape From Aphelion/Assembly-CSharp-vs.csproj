@@ -57,6 +57,7 @@
      <Compile Include="Assets\AphelionScripts\moveBoxScript.cs" />
      <Compile Include="Assets\AphelionScripts\movePU.cs" />
      <Compile Include="Assets\AphelionScripts\playerMovementScript.cs" />
+     <Compile Include="Assets\AphelionScripts\playerPos.cs" />
      <Compile Include="Assets\AphelionScripts\powerUpScript.cs" />
      <Compile Include="Assets\AphelionScripts\randomCubeSelect.cs" />
      <Compile Include="Assets\AphelionScripts\rowText.cs" />
@@ -119,7 +120,7 @@
      <None Include="Assets\Materials\Glow.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>D:/AdvanceMobile/Git/Escape From Aphelion v2.8/Escape From Aphelion v2.8/Escape From Aphelion/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/AdvanceMobile/Escape From Aphelion v3.0/Escape From Aphelion v3.0/Escape From Aphelion v2.8/Escape From Aphelion/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
