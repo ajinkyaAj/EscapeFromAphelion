@@ -11,9 +11,13 @@ public class playerPos : MonoBehaviour {
 		
 		newC.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 		newC.name = "playerPos";
-		newC.transform.position = new Vector3(playerPosition.x, 0.25f, playerPosition.z);//new Vector3(0.119f, 0.25f, -4.904f);
+		newC.transform.position = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z);//new Vector3(0.119f, 0.25f, -4.904f);
 
 		newC.renderer.material = materialPlayerPos;
+
+		newC.GetComponent<Collider> ().enabled = false;
+
+
 
 
 	}
@@ -25,6 +29,6 @@ public class playerPos : MonoBehaviour {
 
 		Vector3 playerPosition = GameObject.Find ("Vincent").transform.position;
 
-		pPos.transform.position = new Vector3(playerPosition.x, 0.25f, playerPosition.z);
+		pPos.transform.position = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z);
 	}
 }
